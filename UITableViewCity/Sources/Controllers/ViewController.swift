@@ -10,6 +10,12 @@ import SnapKit
 
 class ViewController: UIViewController {
 
+    var namesCity = ["Витебск", "Москва", "Батуми", "Париж", "Лондон"]
+
+    var weather = ["Очень жарко, дышать невозможно!", "Ветрено, сдувает просто!", "Адская жара", "Мелкий дождь", "Сильный ветер с дождём"]
+
+    var images = ["thermometer.sun", "wind", "cloud.rain", "thermometer.sun.fill", "cloud.bolt.rain.fill"]
+
     private lazy var tableViewCity: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -19,7 +25,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        title = "Weather"
         setupHierarchy()
+        setupLayout()
     }
 
     private func setupHierarchy() {
