@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
@@ -26,12 +27,10 @@ class ViewController: UIViewController {
 
     }
 
-//    private func setupLayout() {
-//        tableViewCity.snp.makeConstraints {
-//            $0.top.
-//        }
-
-
-
+    private func setupLayout() {
+        tableViewCity.snp.makeConstraints {
+            $0.top.trailing.bottom.leading.equalTo(view)
+        }
 }
 
+}
