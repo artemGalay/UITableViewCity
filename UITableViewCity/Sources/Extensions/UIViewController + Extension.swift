@@ -8,21 +8,24 @@
 import UIKit
 
 extension ViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        names.count
+        namesCity.count
     }
 
-    func tableViewCity(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = names[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.text = namesCity[indexPath.row]
+        cell.detailTextLabel?.text = weather[indexPath.row]
         cell.imageView?.image = UIImage(systemName: images[indexPath.row])
         return cell
     }
 
-    func tableViewCity(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            names.remove(at: indexPath.row)
+            namesCity.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
